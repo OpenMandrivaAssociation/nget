@@ -1,6 +1,6 @@
 %define name nget
 %define version 0.27.1
-%define release 0.3mdk
+%define release %mkrel 0.4
 
 Summary: Command line news grabber
 Name: %name
