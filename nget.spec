@@ -7,6 +7,7 @@ Name: %name
 Version: %version
 Release: %release
 Group: Networking/News
+BuildRoot: %_tmppath/%{name}-buildroot
 Url: http://nget.sf.net
 Source0: http://prdownloads.sourceforge.net/nget/%name-%version.tar.bz2
 # (fc) 0.27.1-0.3mdk reduce memory usage (deteman)
