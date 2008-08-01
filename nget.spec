@@ -33,12 +33,16 @@ successfully downloaded.
 %patch3 -p1
 
 #needed by patch1
+rm -f configure
+aclocal
 autoconf
+autoheader
+echo timestamp > stamp-h.in
 
 %build
 
 %configure2_5x --with-pcre --with-popt
-%make
+make
 	        
 %install
 rm -rf %{buildroot}
