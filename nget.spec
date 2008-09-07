@@ -1,17 +1,26 @@
+%define rel	1
+%define cvs	20080906
+%if %cvs
+%define	release		%mkrel 0.%{cvs}.%{rel}
+%define distname	%{name}-%{cvs}.tar.lzma
+%define dirname		%{name}
+%else
+%define release		%mkrel %{rel}
+%define distname	%{name}-%{version}.tar.gz
+%define dirname		%{name}-%{version}
+%endif
+
 Summary:	Command line news grabber
 Name:		nget
-Version:	0.27.1
-Release:	%mkrel 1
-License:	GPL
+Version:	0.28
+Release:	%{release}
+License:	GPLv2+
 Group:		Networking/News
 URL:		http://nget.sf.net
-Source0:	http://prdownloads.sourceforge.net/nget/%name-%version.tar.bz2
-# (fc) 0.27.1-0.3mdk reduce memory usage (deteman)
-Patch0:		nget-0.27.1-memopt.patch
-# (fc) 0.27.1-0.3mdk fix optflags (CVS)
-Patch1:		nget-0.27.1-optflags.patch
-Patch2:		nget-0.27.1-debuginfo.patch
-Patch3:		nget-0.27.1-gcc43.patch
+Source0:	http://downloads.sourceforge.net/%{name}/%{distname}
+Patch0:		nget-0.27.1-debuginfo.patch
+Patch1:		nget-0.28-autoheader.patch
+Patch3:		nget-0.28-gcc43.patch
 BuildRequires:	uu-static-devel
 BuildRequires:	pcre-devel
 BuildRequires:	popt
@@ -25,28 +34,20 @@ servers. Handles disconnects gracefully, resuming after the last part
 successfully downloaded.
 
 %prep
-
-%setup -q
-%patch0 -p1 -b .memopt
-%patch1 -p1 -b .optflags
-%patch2 -p1
+%setup -q -n %{dirname}
+%patch0 -p1
+%patch1 -p1 -b .autoheader
 %patch3 -p1
 
-#needed by patch1
-rm -f configure
-aclocal
-autoconf
-autoheader
-echo timestamp > stamp-h.in
-
 %build
-
+%if %cvs
+./autogen.sh
+%endif
 %configure2_5x --with-pcre --with-popt
 make
 	        
 %install
 rm -rf %{buildroot}
-
 %makeinstall
 
 %clean
@@ -54,6 +55,6 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
-%doc .ngetrc COPYING Changelog FAQ README TODO
+%doc .ngetrc Changelog FAQ README TODO
 %{_bindir}/*
 %{_mandir}/man1/*
