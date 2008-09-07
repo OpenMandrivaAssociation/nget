@@ -19,8 +19,11 @@ Group:		Networking/News
 URL:		http://nget.sf.net
 Source0:	http://downloads.sourceforge.net/%{name}/%{distname}
 Patch0:		nget-0.27.1-debuginfo.patch
+# Fix a bug in aclocal.m4 which causes autoheader to fail - AdamW
+# 2008/09
 Patch1:		nget-0.28-autoheader.patch
-Patch3:		nget-0.28-gcc43.patch
+# Fix build with GCC 4.3
+Patch2:		nget-0.28-gcc43.patch
 BuildRequires:	uu-static-devel
 BuildRequires:	pcre-devel
 BuildRequires:	popt
@@ -37,7 +40,7 @@ successfully downloaded.
 %setup -q -n %{dirname}
 %patch0 -p1
 %patch1 -p1 -b .autoheader
-%patch3 -p1
+%patch2 -p1
 
 %build
 %if %cvs
