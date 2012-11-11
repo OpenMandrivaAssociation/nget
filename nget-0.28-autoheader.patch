@@ -1,0 +1,11 @@
+--- nget/aclocal.m4	2008-03-02 23:38:19.000000000 -0800
++++ nget/aclocal.m4.new	2008-09-06 20:05:09.000000000 -0700
+@@ -207,7 +207,7 @@
+ for ac_func in $1
+ do
+ MY_CHECK_FUNC($ac_func,[$2],
+-	      [AC_DEFINE_UNQUOTED([AS_TR_CPP([HAVE_$ac_func])]) $3],
++	      [AC_DEFINE_UNQUOTED(AS_TR_CPP([HAVE_$ac_func])) $3],
+ 	      [$4],[$5])dnl
+ done
+ ])

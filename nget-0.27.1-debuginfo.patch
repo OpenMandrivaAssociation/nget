@@ -1,0 +1,12 @@
+diff -urNp nget-0.27.1.orig/Makefile.in nget-0.27.1/Makefile.in
+--- nget-0.27.1.orig/Makefile.in	2004-12-21 15:52:10.000000000 +0530
++++ nget-0.27.1/Makefile.in	2007-10-05 08:13:09.000000000 +0530
+@@ -19,7 +19,7 @@ bindir=@bindir@
+ mandir=@mandir@
+ install=@INSTALL@
+ install_data=${install} -m 0644
+-install_bin=${install} -s -m 0755
++install_bin=${install} -m 0755
+ install_dir=${install} -d
+ 
+ NGET=nget$(EXEEXT)
