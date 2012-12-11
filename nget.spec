@@ -1,4 +1,4 @@
-%define rel	2
+%define rel	1
 %define cvs	20080906
 %if %cvs
 %define	release		%mkrel 0.%{cvs}.%{rel}
@@ -61,3 +61,41 @@ rm -rf %{buildroot}
 %doc .ngetrc Changelog FAQ README TODO
 %{_bindir}/*
 %{_mandir}/man1/*
+
+
+%changelog
+* Sun Sep 07 2008 Adam Williamson <awilliamson@mandriva.com> 0.28-0.20080906.1mdv2009.0
++ Revision: 282052
+- fix patch numbering, comment patches
+- don't package COPYING
+- rediff gcc43.patch
+- add autoheader.patch (fix an error in aclocal.m4 that causes autoheader to
+  fail)
+- drop optflags.patch (merged upstream)
+- new license policy
+- bump to current CVS (probably better than the last release, which is years
+  old)
+
+  + Oden Eriksson <oeriksson@mandriva.com>
+    - build attempt #2
+    - sync with nget-0.27.1-8.fc9.src.rpm
+
+  + Thierry Vignaud <tvignaud@mandriva.com>
+    - rebuild
+    - kill re-definition of %%buildroot on Pixel's request
+    - use %%mkrel
+    - import nget
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+
+* Tue Sep 13 2005 Frederic Crozat <fcrozat@mandriva.com> 0.27.1-0.3mdk 
+- Patch0 (deteman): reduce memory usage
+- Patch1 (CVS): fix optflags
+
+* Mon May 02 2005 Nicolas CHIPAUX <chipaux@mandrakesoft.com> 0.27.1-0.2mdk
+- Fix BuildRequires (add uu-static-devel) (found by François Bandet)
+
+* Tue Jan 04 2004 Lenny Cartier <lenny@mandrakesoft.com> 0.27.1-0.1mdk
+- mandrakized orginal specfile
