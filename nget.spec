@@ -1,4 +1,4 @@
-%define cvs 20080906
+%define cvs	20080906
 
 Summary:	Command line news grabber
 Name:		nget
@@ -39,12 +39,12 @@ successfully downloaded.
 %patch2 -p1
 
 %build
-%if %{cvs}
-./autogen.sh
-%endif
+autoreconf -fi
+sed s,"fidone","fi\ndone",g -i configure
 %configure2_5x --with-pcre --with-popt
 make
 
 %install
 %makeinstall
+
 
