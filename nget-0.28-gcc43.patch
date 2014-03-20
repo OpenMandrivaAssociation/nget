@@ -1,5 +1,6 @@
---- nget-0.27.1.orig/myregex.cc	2004-05-30 04:30:06.000000000 +0530
-+++ nget-0.27.1/myregex.cc	2008-02-16 21:55:45.000000000 +0530
+diff -urN nget/myregex.cc nget-patched/myregex.cc
+--- nget/myregex.cc	2008-03-03 17:03:02.000000000 +1000
++++ nget-patched/myregex.cc	2014-03-20 20:49:15.398947964 +1100
 @@ -19,7 +19,8 @@
  #ifdef HAVE_CONFIG_H
  #include "config.h"
@@ -8,10 +9,11 @@
 +#include <cstdlib>
 +#include <cstring>
  #include "myregex.h"
+ #include <string.h>
  
-
---- nget-0.27.1.orig/nrange.h	2004-05-30 04:30:08.000000000 +0530
-+++ nget-0.27.1/nrange.h	2008-02-16 21:55:45.000000000 +0530
+diff -urN nget/nrange.h nget-patched/nrange.h
+--- nget/nrange.h	2008-03-03 17:03:02.000000000 +1000
++++ nget-patched/nrange.h	2014-03-20 20:49:15.398947964 +1100
 @@ -22,6 +22,7 @@
  #ifdef HAVE_CONFIG_H
  #include "config.h"
@@ -20,9 +22,9 @@
  #include <sys/types.h>
  #include <map>
  #include <stdexcept>
-diff -urNp nget-0.27.1.orig/path.cc nget-0.27.1/path.cc
---- nget-0.27.1.orig/path.cc	2004-05-30 04:30:06.000000000 +0530
-+++ nget-0.27.1/path.cc	2008-02-16 21:55:45.000000000 +0530
+diff -urN nget/path.cc nget-patched/path.cc
+--- nget/path.cc	2008-03-03 17:03:02.000000000 +1000
++++ nget-patched/path.cc	2014-03-20 20:49:15.398947964 +1100
 @@ -17,7 +17,8 @@
      Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
@@ -33,9 +35,9 @@ diff -urNp nget-0.27.1.orig/path.cc nget-0.27.1/path.cc
  #include <unistd.h>
  #include "log.h"
  #include "_fileconf.h"
-diff -urNp nget-0.27.1.orig/server.cc nget-0.27.1/server.cc
---- nget-0.27.1.orig/server.cc	2004-12-21 02:14:11.000000000 +0530
-+++ nget-0.27.1/server.cc	2008-02-16 22:09:43.000000000 +0530
+diff -urN nget/server.cc nget-patched/server.cc
+--- nget/server.cc	2005-05-12 15:32:50.000000000 +1100
++++ nget-patched/server.cc	2014-03-20 20:49:15.398947964 +1100
 @@ -20,6 +20,7 @@
  #include "strreps.h"
  #include "nget.h"
@@ -44,12 +46,12 @@ diff -urNp nget-0.27.1.orig/server.cc nget-0.27.1/server.cc
  #include <sys/types.h>
  #include <dirent.h>
  #include <algorithm>
-diff -urNp nget-0.27.1.orig/stlhelp.h nget-0.27.1/stlhelp.h
---- nget-0.27.1.orig/stlhelp.h	2004-05-30 04:30:08.000000000 +0530
-+++ nget-0.27.1/stlhelp.h	2008-02-16 21:55:45.000000000 +0530
-@@ -19,6 +19,7 @@
- #ifndef _STLHELP_H_
- #define _STLHELP_H_
+diff -urN nget/stlhelp.h nget-patched/stlhelp.h
+--- nget/stlhelp.h	2008-03-03 17:03:02.000000000 +1000
++++ nget-patched/stlhelp.h	2014-03-20 20:49:15.399947981 +1100
+@@ -21,6 +21,7 @@
+ 
+ #include <string.h>
  
 +#include <cstring>
  struct eqstr
