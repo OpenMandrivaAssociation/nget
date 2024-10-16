@@ -6,7 +6,7 @@ Version:	0.28
 Release:	0.%{cvs}.2
 License:	GPLv2+
 Group:		Networking/News
-Url:		http://nget.sf.net
+Url:		https://nget.sf.net
 Source0:	http://downloads.sourceforge.net/%{name}/%{name}-%{cvs}.tar.lzma
 Patch0:		nget-0.27.1-debuginfo.patch
 # Fix a bug in aclocal.m4 which causes autoheader to fail - AdamW
