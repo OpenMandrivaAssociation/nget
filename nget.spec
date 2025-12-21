@@ -14,6 +14,11 @@ Patch0:		nget-0.27.1-debuginfo.patch
 Patch1:		nget-0.28-autoheader.patch
 # Fix build with GCC 4.3
 Patch2:		nget-0.28-gcc43.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	popt
 BuildRequires:	uu-static-devel
 BuildRequires:	pkgconfig(libpcre)
